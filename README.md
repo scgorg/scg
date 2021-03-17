@@ -2,8 +2,7 @@
 
 ## 第一步
 
-開啟 Google 低安全性
-
+開啟 Google 低安全性 https://myaccount.google.com/lesssecureapps
 ![](https://i.imgur.com/nN5MqgO.png)
 
 
