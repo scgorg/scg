@@ -11,8 +11,8 @@ class CSVReader:
             rows = csv.reader(csv_file)
 
             for row in rows:
-                # yield for name and gmail
-                yield row[0], row[1]
+                # yield for name, gmail, title
+                yield row[0], row[1], row[2]
 
 # Usage
 
