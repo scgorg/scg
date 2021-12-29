@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import setuptools
 
-from pygmail import __version__
+from scg import __version__
 
 with open("README.md") as fh:
     long_description = fh.read()
@@ -11,18 +11,18 @@ required_requirements = [
 ]
 
 setuptools.setup(
-    name="py-gmail",  # Replace with your own username
+    name="scg",  # Replace with your own username
     version=__version__,
     author="JunWei Song",
     author_email="sungboss2004@gmail.com",
-    description="Python interface for playing Gmail",
+    description="Send custom Gmail with Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/krnick/py-gmail",
+    url="https://github.com/krnick/scg",
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "pygmail=pygmail.cli:entry_point"
+            "scg=scg.cli:entry_point"
         ]
     },
     classifiers=[

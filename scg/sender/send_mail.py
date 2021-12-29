@@ -2,9 +2,9 @@ import smtplib
 from email.mime.text import MIMEText
 from time import sleep
 
-from pygmail.config import ACCOUNT, PASSWORD
-from pygmail.content import get_mail_content
-from pygmail.csvreader import CSVReader
+from scg.config import ACCOUNT, PASSWORD
+from scg.content import get_mail_content
+from scg.csvreader import CSVReader
 
 # Your Account
 gmail_user = ACCOUNT

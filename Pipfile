@@ -7,7 +7,7 @@ name = "pypi"
 black = "*"
 pytest = "*"
 click = "*"
-pygmail = {editable = true, path = "."}
+scg = {editable = true, path = "."}
 
 [dev-packages]
 

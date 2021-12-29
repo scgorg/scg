@@ -1,6 +1,6 @@
 import click
 
-from pygmail import __version__
+from scg import __version__
 
 
 @click.version_option(version=__version__)
