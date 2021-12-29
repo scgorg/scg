@@ -8,6 +8,7 @@ black = "*"
 pytest = "*"
 click = "*"
 scg = {editable = true, path = "."}
+pycryptodome = "*"
 
 [dev-packages]
 

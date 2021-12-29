@@ -1,3 +1,5 @@
+import getpass
+
 import click
 
 from scg import __version__
@@ -22,7 +24,23 @@ def entry_point(ctx, csv):
 
 @entry_point.command()
 def init():
-    print("init")
+    print("====================SCG====================\n")
+
+    account = input("Please input your Gamil account: ")
+
+    if account:
+
+        pwd = getpass.getpass('Password: ')
+
+        if pwd:
+            print("Your account and password will be encrypted and stored in setting.json")
+            print(account)
+            print(pwd)
+        else:
+            print("It looks like you don't enter your password")
+
+    else:
+        print("It looks like you don't enter your account name")
 
 
 if __name__ == "__main__":
