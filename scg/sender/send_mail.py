@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from time import sleep
 
 from scg.config import ACCOUNT, PASSWORD
-from scg.content import get_mail_content
+from scg.content.helper import get_mail_content
 from scg.csvreader import CSVReader
 
 # Your Account
