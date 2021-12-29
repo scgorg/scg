@@ -12,7 +12,7 @@ from scg import __version__
     help="Hello",
 )
 def entry_point():
-    """Python interface for playing Gmail"""
+    """Send custom Gmail with Python"""
 
 
 if __name__ == '__main__':
