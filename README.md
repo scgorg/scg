@@ -8,6 +8,12 @@ Send Your Custom Gmail with Python
 ![](https://i.imgur.com/nN5MqgO.png)
 
 
+## Install
+
+```bash
+pip3 install scg
+```
+
 ## 第二步
 
 在 `config.py` 輸入你的帳號密碼
