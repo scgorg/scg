@@ -1,4 +1,6 @@
-# pygmail
+# scg
+
+Send Your Custom Gmail with Python
 
 ## 第一步
 
