@@ -1,10 +1,10 @@
 import smtplib
 from email.mime.text import MIMEText
-from CSVReader.CSVReader import CSVReader
+from time import sleep
 
 from config import ACCOUNT, PASSWORD
 from content.helper import get_mail_content
-from time import sleep
+from csvreader.CSVReader import CSVReader
 
 # Your Account
 gmail_user = ACCOUNT
@@ -27,7 +27,7 @@ def send_mail(name, mail, title):
 
 if __name__ == "__main__":
 
-    accpeted_list = CSVReader("tests/list.csv")
+    accpeted_list = CSVReader("../tests/list.csv")
 
     for name, mail in accpeted_list.get_rows():
         if name == "Name":
