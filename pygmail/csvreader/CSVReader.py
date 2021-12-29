@@ -44,7 +44,7 @@ class CSVReader:
 
 
 if __name__ == "__main__":
-    reviewer_list = CSVReader("../tests/list.csv")
+    reviewer_list = CSVReader("../../tests/list.csv")
 
     print(reviewer_list.get_count())
     for item in reviewer_list.get_rows_list():

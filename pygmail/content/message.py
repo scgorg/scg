@@ -11,6 +11,7 @@ class Message:
         self.to = ""
         self.fm = ""
         self.subject = ""
+        self.body = ""
 
     @property
     def cc(self):
@@ -27,3 +28,7 @@ class Message:
     @property
     def subject(self):
         return self.subject
+
+    @property
+    def body(self):
+        return self.body
