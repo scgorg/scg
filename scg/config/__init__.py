@@ -1,5 +1,1 @@
-{
-    "ACCOUNT": "",
-    "PASSWORD": ""
-
-}
+{"ACCOUNT": "", "PASSWORD": ""}

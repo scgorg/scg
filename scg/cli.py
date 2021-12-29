@@ -1,4 +1,5 @@
 import getpass
+import json
 
 import click
 
@@ -17,9 +18,9 @@ from scg import __version__
 def entry_point(ctx, csv):
     """Send custom Gmail with Python"""
     if ctx.invoked_subcommand is None:
-        click.echo('I was invoked without subcommand')
+        click.echo("I was invoked without subcommand")
     else:
-        click.echo('I am about to invoke %s' % ctx.invoked_subcommand)
+        click.echo("I am about to invoke %s" % ctx.invoked_subcommand)
 
 
 @entry_point.command()
@@ -30,12 +31,14 @@ def init():
 
     if account:
 
-        pwd = getpass.getpass('Password: ')
+        pwd = getpass.getpass("Password: ")
 
         if pwd:
-            print("Your account and password will be encrypted and stored in setting.json")
-            print(account)
-            print(pwd)
+            print(
+                "Your account and password will be encrypted and stored in setting.json"
+            )
+            with open("setting.json", "w") as json_file:
+                json.dump({"ACCOUNT": account, "PASSWORD": pwd}, json_file, indent=4)
         else:
             print("It looks like you don't enter your password")
 
