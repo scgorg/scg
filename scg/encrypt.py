@@ -47,8 +47,8 @@ def decrypt(key):
 
         cipher = AES.new(key, AES.MODE_CBC, iv=iv)
 
-        originalData = unpad(cipher.decrypt(cipheredData), AES.block_size)
-        setting = json.loads(originalData.decode("utf-8"))
+        original_data = unpad(cipher.decrypt(cipheredData), AES.block_size)
+        setting = json.loads(original_data.decode("utf-8"))
         if setting["ACCOUNT"] and setting["PASSWORD"]:
             print("Account is all set")
         else:

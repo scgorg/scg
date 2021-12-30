@@ -1,7 +1,7 @@
 import urllib.parse
 
 
-def return_url_fb(video, talk):
+def get_facebook_post(video, talk):
     video_link = urllib.parse.quote(video)
 
     word = urllib.parse.quote(f"My PyConTW talk '{talk}' is up on YouTube!")
@@ -12,7 +12,7 @@ def return_url_fb(video, talk):
     return link
 
 
-def return_url_tw(video, talk):
+def get_twitter_tweet(video, talk):
     word = urllib.parse.quote(
         f"My @PyConTW talk '{talk}' is up on YouTube! {video} #pycontw2021"
     )

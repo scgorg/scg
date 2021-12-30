@@ -3,8 +3,7 @@ import getpass
 import click
 
 from scg import __version__
-from scg.encrypt import SETTING_FILE
-from scg.encrypt import encrypt, init_key, read_key, decrypt
+from scg import encrypt
 from scg.logo import logo
 
 logo()
@@ -21,7 +20,7 @@ logo()
     help="CSV file to read",
 )
 def entry_point(ctx, csv):
-    """Send custom Gmail via Python"""
+    """Send Custom Gmail via Python"""
 
     if ctx.invoked_subcommand is None:
         click.echo("I was invoked without subcommand")
@@ -33,7 +32,7 @@ def entry_point(ctx, csv):
 def init():
     print("====================Account Setting====================\n")
 
-    account = input("Please input your Gamil account: ")
+    account = input("Please Enter Your Gamil Account: ")
 
     if account:
 
@@ -41,12 +40,14 @@ def init():
 
         if pwd:
             print(
-                f"Your account and password will be encrypted and stored in {SETTING_FILE}"
+                f"Your account and password will be encrypted and stored in {encrypt.SETTING_FILE}"
             )
 
-            secret = getpass.getpass("Your Encryption Secret: (default is 'scg')") or "scg"
+            secret = (
+                getpass.getpass("Your Encryption Secret: (default is 'scg')") or "scg"
+            )
 
-            key = init_key(secret)
+            key = encrypt.init_key(secret)
 
             encrypt(key=key, account=account, pwd=pwd)
         else:
@@ -60,8 +61,8 @@ def init():
 def check():
     print("====================Account Checking====================\n")
 
-    key = read_key()
-    decrypt(key)
+    key = encrypt.read_key()
+    encrypt.decrypt(key)
 
 
 if __name__ == "__main__":
