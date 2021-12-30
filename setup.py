@@ -7,7 +7,8 @@ with open("README.md") as fh:
     long_description = fh.read()
 
 required_requirements = [
-    "click"
+    "click",
+    "pycryptodome"
 ]
 
 setuptools.setup(
@@ -18,7 +19,7 @@ setuptools.setup(
     description="Send custom Gmail with Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/krnick/scg",
+    url="https://github.com/scgorg/scg",
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
