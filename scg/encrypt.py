@@ -1,4 +1,5 @@
 import json
+import sys
 
 from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF2
@@ -20,9 +21,13 @@ def init_key(secret):
 
 
 def read_key():
-    with open(KEY_FILE, "rb") as key_file:
-        key = key_file.read()
-    return key
+    try:
+        with open(KEY_FILE, "rb") as key_file:
+            key = key_file.read()
+        return key
+    except FileNotFoundError:
+        print(f"There is no {KEY_FILE} file, please do `scg init` first")
+        sys.exit(0)
 
 
 def encrypt(key, account, pwd):
@@ -35,18 +40,22 @@ def encrypt(key, account, pwd):
 
 
 def decrypt(key):
-    with open(SETTING_FILE, "rb") as f:
-        iv = f.read(16)
-        cipheredData = f.read()
+    try:
+        with open(SETTING_FILE, "rb") as f:
+            iv = f.read(16)
+            cipheredData = f.read()
 
-    cipher = AES.new(key, AES.MODE_CBC, iv=iv)
+        cipher = AES.new(key, AES.MODE_CBC, iv=iv)
 
-    originalData = unpad(cipher.decrypt(cipheredData), AES.block_size)
-    setting = json.loads(originalData.decode("utf-8"))
-    if setting["ACCOUNT"] and setting["PASSWORD"]:
-        print("Account is all set")
-    else:
-        print("Your account is not set up")
+        originalData = unpad(cipher.decrypt(cipheredData), AES.block_size)
+        setting = json.loads(originalData.decode("utf-8"))
+        if setting["ACCOUNT"] and setting["PASSWORD"]:
+            print("Account is all set")
+        else:
+            print("Your account is not set up")
+    except FileNotFoundError:
+        print(f"There is no {SETTING_FILE} file, please do `scg init` first")
+        sys.exit(0)
 
 
 if __name__ == "__main__":
