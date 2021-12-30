@@ -4,6 +4,9 @@ import json
 import click
 
 from scg import __version__
+from scg.logo import logo
+
+logo()
 
 
 @click.group(invoke_without_command=True, no_args_is_help=True)
@@ -13,10 +16,12 @@ from scg import __version__
     "-c",
     "--csv",
     is_flag=False,
+    type=click.Path(exists=True, file_okay=True, dir_okay=False),
     help="CSV file to read",
 )
 def entry_point(ctx, csv):
-    """Send custom Gmail with Python"""
+    """Send custom Gmail via Python"""
+
     if ctx.invoked_subcommand is None:
         click.echo("I was invoked without subcommand")
     else:
@@ -25,7 +30,7 @@ def entry_point(ctx, csv):
 
 @entry_point.command()
 def init():
-    print("====================SCG====================\n")
+    print("====================Account Setting====================\n")
 
     account = input("Please input your Gamil account: ")
 
