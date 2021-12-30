@@ -1,13 +1,10 @@
 import getpass
-import json
 
 import click
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad
-from Crypto.Util.Padding import unpad
 
 from scg import __version__
-from scg.config import key
+from scg.encrypt import SETTING_FILE
+from scg.encrypt import encrypt, init_key, read_key, decrypt
 from scg.logo import logo
 
 logo()
@@ -35,7 +32,7 @@ def entry_point(ctx, csv):
 @entry_point.command()
 def init():
     print("====================Account Setting====================\n")
-    print(key)
+
     account = input("Please input your Gamil account: ")
 
     if account:
@@ -44,20 +41,14 @@ def init():
 
         if pwd:
             print(
-                "Your account and password will be encrypted and stored in setting.json"
+                f"Your account and password will be encrypted and stored in {SETTING_FILE}"
             )
 
-            cipher = AES.new(key, AES.MODE_CBC)
-            encoded_data = json.dumps({"ACCOUNT": account, "PASSWORD": pwd}).encode(
-                "utf-8"
-            )
-            print(encoded_data)
-            cipheredData = cipher.encrypt(pad(encoded_data, AES.block_size))
-            print(cipheredData)
-            with open("setting.bin", "wb") as f:
-                f.write(cipher.iv)
-                f.write(cipheredData)
+            secret = getpass.getpass("Your Encryption Secret: (default is 'scg')") or "scg"
 
+            key = init_key(secret)
+
+            encrypt(key=key, account=account, pwd=pwd)
         else:
             print("It looks like you don't enter your password")
 
@@ -69,20 +60,8 @@ def init():
 def check():
     print("====================Account Checking====================\n")
 
-    inputFile = "setting.bin"
-
-    with open(inputFile, "rb") as f:
-        iv = f.read(16)
-        cipheredData = f.read()
-
-    cipher = AES.new(key, AES.MODE_CBC, iv=iv)
-
-    originalData = unpad(cipher.decrypt(cipheredData), AES.block_size)
-    setting = json.loads(originalData.decode("utf-8"))
-    if setting["ACCOUNT"] and setting["PASSWORD"]:
-        print("Account is all set")
-    else:
-        print("Your account is not set up")
+    key = read_key()
+    decrypt(key)
 
 
 if __name__ == "__main__":

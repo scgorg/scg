@@ -1,5 +1,5 @@
 *.bin
-   
+*.ini
 .DS_Store
 .vscode /
 .idea/
