@@ -49,7 +49,7 @@ def init():
 
             key = encrypt.init_key(secret)
 
-            encrypt(key=key, account=account, pwd=pwd)
+            encrypt.encrypt(key=key, account=account, pwd=pwd)
         else:
             print("It looks like you don't enter your password")
 
