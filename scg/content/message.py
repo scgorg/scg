@@ -4,6 +4,8 @@ message is for construct the mail content
 
 import json
 
+from scg.config import MAIL_CONFIG
+
 
 class Message:
     __slots__ = ["_cc", "_to", "_fm", "_subject", "_body"]
@@ -56,7 +58,7 @@ class Message:
         self._body = body
 
     def save_mail_setting(self):
-        with open("mail-setting.json", "w") as json_file:
+        with open(MAIL_CONFIG, "w") as json_file:
             content = {
                 "cc": self._cc,
                 "to": self._to,

@@ -7,8 +7,7 @@ from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad
 from Crypto.Util.Padding import unpad
 
-SETTING_FILE = ".setting.bin"
-KEY_FILE = ".keys.ini"
+from scg.config import KEY_FILE, SETTING_FILE
 
 
 def init_key(secret):

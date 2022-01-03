@@ -1,5 +1,6 @@
-from scg.csvreader import CSVReader
 from prettytable import PrettyTable
+
+from scg.csvreader import CSVReader
 
 
 def show_csv_content(csv):

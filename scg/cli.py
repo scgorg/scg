@@ -1,11 +1,13 @@
 import getpass
+import os
 
 import click
 
 from scg import __version__
 from scg import encrypt
-from scg.logo import logo
+from scg.config import KEY_FILE, SETTING_FILE, MAIL_CONFIG
 from scg.content.message import Message
+from scg.logo import logo
 
 logo()
 
@@ -77,6 +79,20 @@ def mail():
     message.body = input("Please Enter Your Mail Body:\n")
 
     message.save_mail_setting()
+
+
+@entry_point.command()
+def clear():
+    print("====================Clear Data and Setting====================\n")
+    file_list = [SETTING_FILE, MAIL_CONFIG, KEY_FILE]
+
+    for item in file_list:
+        try:
+            os.remove(item)
+        except OSError:
+            pass
+
+    print("Data and Setting are deleted successfully")
 
 
 if __name__ == "__main__":
