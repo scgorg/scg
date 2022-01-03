@@ -88,7 +88,8 @@ def clear():
 
     for item in file_list:
         try:
-            os.remove(item)
+            if os.path.isfile(item):
+                os.remove(item)
         except OSError:
             pass
 
