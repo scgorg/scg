@@ -4,13 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-black = "*"
-pytest = "*"
 click = "*"
 scg = {editable = true, path = "."}
 pycryptodome = "*"
 
 [dev-packages]
+black = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
