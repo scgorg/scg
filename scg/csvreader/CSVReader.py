@@ -39,6 +39,16 @@ class CSVReader:
             for row in rows:
                 yield row
 
+    def get_row_dict_keys(self):
+        """
+        Return the each Rows name
+        :return: tuple
+        """
+        with open(self.filename, newline="") as csv_file:
+            rows = csv.DictReader(csv_file)
+            for row in rows:
+                return list(row.keys())
+
 
 # Usage
 

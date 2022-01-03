@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d17824744c296636a7680a37ddb02d9016536d843e6b6a96b9365a255d38dd53"
+            "sha256": "a8ac772049699ee033bc17151004de4aa6c62d54cc9488839d964ac88339c7d2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,6 +23,14 @@
             ],
             "index": "pypi",
             "version": "==8.0.3"
+        },
+        "prettytable": {
+            "hashes": [
+                "sha256:1411c65d21dca9eaa505ba1d041bed75a6d629ae22f5109a923f4e719cfecba4",
+                "sha256:f7da57ba63d55116d65e5acb147bfdfa60dceccabf0d607d6817ee2888a05f2c"
+            ],
+            "index": "pypi",
+            "version": "==2.5.0"
         },
         "pycryptodome": {
             "hashes": [
@@ -63,6 +71,13 @@
         "scg": {
             "editable": true,
             "path": "."
+        },
+        "wcwidth": {
+            "hashes": [
+                "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784",
+                "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
+            ],
+            "version": "==0.2.5"
         }
     },
     "develop": {
