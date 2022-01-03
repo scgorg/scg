@@ -5,6 +5,7 @@ import click
 from scg import __version__
 from scg import encrypt
 from scg.logo import logo
+from scg.content.message import Message
 
 logo()
 
@@ -63,6 +64,19 @@ def check():
 
     key = encrypt.read_key()
     encrypt.decrypt(key)
+
+
+@entry_point.command()
+def mail():
+    print("====================Mail Setting====================\n")
+    message = Message()
+    message.subject = input("Please Enter Your Mail Subject:\n")
+    message.cc = input("Please Enter Your Mail CC:\n")
+    message.fm = input("Please Enter Your Mail From:\n")
+    message.to = input("Please Enter Your Mail To:\n")
+    message.body = input("Please Enter Your Mail Body:\n")
+
+    message.save_mail_setting()
 
 
 if __name__ == "__main__":
