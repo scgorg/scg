@@ -1,4 +1,5 @@
 *.bin
+*.json
 *.ini
 .DS_Store
 .vscode /
