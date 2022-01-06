@@ -8,6 +8,7 @@ from scg import encrypt
 from scg.config import KEY_FILE, SETTING_FILE, MAIL_CONFIG
 from scg.content.message import Message
 from scg.logo import logo
+from scg.main import main
 
 logo()
 
@@ -26,9 +27,13 @@ def entry_point(ctx, csv):
     """Send Custom Gmail via Python"""
 
     if ctx.invoked_subcommand is None:
-        click.echo("I was invoked without subcommand")
+        # click.echo("I was invoked without subcommand")
+        if csv:
+            main(csv)
+
     else:
-        click.echo("I am about to invoke %s" % ctx.invoked_subcommand)
+        # click.echo("I am about to invoke %s" % ctx.invoked_subcommand)
+        pass
 
 
 @entry_point.command()

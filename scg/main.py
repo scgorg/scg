@@ -8,8 +8,7 @@ def show_csv_content(csv):
     table = PrettyTable()
 
     csv_file = CSVReader.CSVReader(csv)
-    print(f"ROWS Count: {csv_file.get_count()}")
-    print("####################################")
+    print(f"CSV Rows Count: {csv_file.get_count()}\n")
     table.field_names = csv_file.get_row_dict_keys()
 
     for item in csv_file.get_rows_dict():
@@ -22,8 +21,8 @@ def show_csv_content(csv):
     print(table)
 
 
-def main():
-    show_csv_content("../tests/list.csv")
+def main(csv_file):
+    show_csv_content(csv_file)
 
 
 if __name__ == "__main__":
