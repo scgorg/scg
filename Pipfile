@@ -8,6 +8,7 @@ click = "*"
 scg = {editable = true, path = "."}
 pycryptodome = "*"
 prettytable = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"
